@@ -1,2 +1,2 @@
-# pine-docs
-Documentation repo for pine
+# Pine Documentation
+Documentation repo for Pine
