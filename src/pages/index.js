@@ -15,9 +15,9 @@ function HomepageHeader() {
       <div className="container" style={{ zIndex: 3 }}>
         <Heading as="h1" className={styles.heroTitle}>
           <img
-            src="/img/logo.png"
+            src="/pine-docs/img/logo.png"
             alt="Pine Logo"
-            style={{ width: "5rem", height: "auto", resize: "contain" }}
+            style={{ width: "5rem", height: "auto", objectFit: "contain" }}
           />
           Pine
         </Heading>

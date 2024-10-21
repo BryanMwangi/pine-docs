@@ -8,7 +8,7 @@ Start building your next project with **Pine in less than 2 minutes**.
 
 ## Getting Started
 
-We recommend downloading the latest version of **[Go](https://go.dev/dl/)** to get started. However, version `1.13` or above is required.
+We recommend downloading the latest version of **[Go](https://go.dev/dl/)** to get started. However, version `1.18` or above is required.
 
 Install Pine by running the following command:
 
