@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkpine_docs=self.webpackChunkpine_docs||[]).push([[7472],{5513:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"You Do not Need a Framework","permalink":"/blog/you-dont-need-a-framework","unlisted":false,"date":"2024-10-21T20:01:04.000Z"}]}')}}]);
