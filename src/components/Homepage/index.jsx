@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import clsx from "clsx";
 import Heading from "@theme/Heading";
 import "./styles.css";
@@ -16,6 +16,7 @@ import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { MoveRight, MoveDown, ChevronRight } from "lucide-react";
 import Link from "@docusaurus/Link";
 import ColumnChart from "../Chart/ColumnChart";
+import BrowserOnly from "@docusaurus/BrowserOnly";
 
 function Feature({ imageUrl, title, description }) {
   return (
@@ -33,34 +34,32 @@ function Feature({ imageUrl, title, description }) {
 
 export default function Homepage() {
   const [isDesktop, setIsDesktop] = useState(true);
-
-  useLayoutEffect(() => {
+  if (typeof window !== "undefined") {
     window.addEventListener("resize", () => {
       setIsDesktop(window.innerWidth > 996);
     });
-  }, []);
 
-  useEffect(() => {
-    setIsDesktop(window.innerWidth > 996);
-    const highlightElements = document.querySelectorAll(".highlights");
+    useEffect(() => {
+      setIsDesktop(window.innerWidth > 996);
+      const highlightElements = document.querySelectorAll(".highlights");
 
-    if (highlightElements.length) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("in-view");
-          } else {
-            entry.target.classList.remove("in-view");
-          }
+      if (highlightElements.length) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in-view");
+            } else {
+              entry.target.classList.remove("in-view");
+            }
+          });
         });
-      });
-      highlightElements.forEach((element) => {
-        observer.observe(element);
-      });
-      return () => observer.disconnect();
-    }
-  }, []);
-
+        highlightElements.forEach((element) => {
+          observer.observe(element);
+        });
+        return () => observer.disconnect();
+      }
+    }, []);
+  }
   return (
     <>
       <section className="features">

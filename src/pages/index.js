@@ -6,6 +6,7 @@ import Heading from "@theme/Heading";
 import styles from "./index.module.css";
 import LandingPageAnimation from "../components/LandingPageAnimation";
 import { ChevronRight } from "lucide-react";
+import BrowserOnly from "@docusaurus/BrowserOnly";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
@@ -57,8 +58,8 @@ export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />"
+      title={`Welcome to ${siteConfig.title}`}
+      description="A simple Go server framework inspired by Express"
     >
       <HomepageHeader />
       <main>

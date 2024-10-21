@@ -1,5 +1,16 @@
+import BrowserOnly from "@docusaurus/BrowserOnly";
 import { Component } from "react";
-import Chart from "react-apexcharts";
+
+function NewChart(props) {
+  return (
+    <BrowserOnly>
+      {() => {
+        const Chart = require("react-apexcharts").default;
+        return <Chart {...props} />;
+      }}
+    </BrowserOnly>
+  );
+}
 
 class ColumnChart extends Component {
   constructor(props) {
@@ -74,31 +85,13 @@ class ColumnChart extends Component {
           },
         },
       },
-      chartHeight: window.innerHeight * 0.37,
+      chartHeight: 450,
     };
-
-    this.handleResize = this.handleResize.bind(this);
   }
 
-  componentDidMount() {
-    this._isMounted = true;
-    window.addEventListener("resize", this.handleResize);
-  }
-  componentWillUnmount() {
-    this._isMounted = false;
-    window.removeEventListener("resize", this.handleResize);
-  }
-
-  handleResize() {
-    if (this._isMounted) {
-      this.setState({
-        chartHeight: window.innerHeight * 0.37,
-      });
-    }
-  }
   render() {
     return (
-      <Chart
+      <NewChart
         options={this.state.options}
         series={this.state.series}
         type="bar"
